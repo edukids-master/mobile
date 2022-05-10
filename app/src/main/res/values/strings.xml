@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EduKids</string>
+    <string name="login_hint">Login</string>
+    <string name="mot_de_passe_hint">Mot de passe</string>
 </resources>

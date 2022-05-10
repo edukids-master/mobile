@@ -7,9 +7,19 @@
     tools:context=".view.LoginActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:divider="@drawable/vertical_divider"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView"
@@ -19,27 +29,48 @@
             android:text="Connexion" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/loginText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:autofillHints=""
+            android:drawableLeft="@drawable/ic_profile"
+            android:drawablePadding="10dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Login"
+            android:hint="@string/login_hint"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColorHint="#546E7A"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/passwordText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:autofillHints=""
+            android:drawableLeft="@drawable/ic_password"
+            android:drawablePadding="10dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Mot de passe"
+            android:hint="@string/mot_de_passe_hint"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColorHint="#546E7A"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Se connecter" />
+            android:text="Se connecter"
+            android:onClick="@{() => viewmodel.connexion()}"
+            />
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

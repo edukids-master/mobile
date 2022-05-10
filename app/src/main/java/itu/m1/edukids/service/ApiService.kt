@@ -2,13 +2,10 @@ package itu.m1.edukids.service
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import itu.m1.edukids.model.User
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.POST
 
-private const val BASE_URL = "http://localhost:3000/api"
+private const val BASE_URL = "https://31d9-197-149-32-128.ngrok.io/api/"
 
 /**
  * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
@@ -28,21 +25,8 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 /**
- * A public interface that exposes the [getPhotos] method
- */
-interface MarsApiService {
-    /**
-     * Returns a [List] of [MarsPhoto] and this method can be called from a Coroutine.
-     * The @GET annotation indicates that the "photos" endpoint will be requested with the GET
-     * HTTP method
-     */
-    @POST("user/login")
-    suspend fun connexion(): User
-}
-
-/**
  * A public Api object that exposes the lazy-initialized Retrofit service
  */
 object ApiService {
-    val retrofitService: MarsApiService by lazy { retrofit.create(MarsApiService::class.java) }
+    val retrofitService: UserService by lazy { retrofit.create(UserService::class.java) }
 }
