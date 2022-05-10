@@ -17,17 +17,18 @@ class UserController : ViewModel() {
     // The external LiveData interface to the property is immutable, so only this class can modify
     val user: LiveData<User> = _user
 
-    init {
-        login()
-    }
+    private var _error = MutableLiveData<String>()
 
-    private fun login() {
+    val error: LiveData<String> = _error
+
+    fun connexion(user: User) {
         viewModelScope.launch {
             try {
-                _user.value = ApiService.retrofitService.connexion(User("mario.safidy", "testing123+"))
-                user.value?.let { Log.d("LOGIN", it.login) }
+                _user.value = ApiService.userService.connexion(user)
+                _user.value?.let { Log.d("LOGIN", it.login) }
             } catch (e: Exception) {
-                e.printStackTrace()
+                _error.value = e.message
+                throw e
             }
         }
     }

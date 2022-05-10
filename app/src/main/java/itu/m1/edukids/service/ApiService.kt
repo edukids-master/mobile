@@ -5,7 +5,8 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-private const val BASE_URL = "https://31d9-197-149-32-128.ngrok.io/api/"
+//private const val BASE_URL = "https://edukids-api.herokuapp.com/api/"
+private const val BASE_URL = "https://5537-154-126-56-74.ngrok.io/api/"
 
 /**
  * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
@@ -28,5 +29,5 @@ private val retrofit = Retrofit.Builder()
  * A public Api object that exposes the lazy-initialized Retrofit service
  */
 object ApiService {
-    val retrofitService: UserService by lazy { retrofit.create(UserService::class.java) }
+    val userService: UserService by lazy { retrofit.create(UserService::class.java) }
 }
