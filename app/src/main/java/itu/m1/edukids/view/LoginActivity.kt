@@ -15,7 +15,7 @@ import itu.m1.edukids.model.User
 class LoginActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityLoginBinding
-    lateinit var loginViewModel: UserController
+    private lateinit var loginViewModel: UserController
 
     private lateinit var loginText: EditText
     private lateinit var passwordText: EditText
