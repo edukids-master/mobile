@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import itu.m1.edukids.model.User
 import itu.m1.edukids.service.ApiService
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 
 class UserController : ViewModel() {
     // Internally, we use a MutableLiveData, because we will be updating the List of MarsPhoto
@@ -21,14 +23,21 @@ class UserController : ViewModel() {
 
     val error: LiveData<String> = _error
 
+    fun getErrorMessage(raw: String): String {
+        val json = JSONObject(raw)
+        return json.getString("message")
+    }
+
     fun connexion(user: User) {
         viewModelScope.launch {
-            try {
-                _user.value = ApiService.userService.connexion(user)
-                _user.value?.let { Log.d("LOGIN", it.login) }
-            } catch (e: Exception) {
-                _error.value = e.message
-                throw e
+            val response = ApiService.userService.connexion(user)
+
+            if(response.isSuccessful) {
+                _user.value = response.body()
+            } else {
+                val errorMessage = getErrorMessage(response.errorBody()!!.string())
+                Log.e("ERROR", errorMessage)
+                _error.value = errorMessage
             }
         }
     }

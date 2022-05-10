@@ -2,8 +2,11 @@ package itu.m1.edukids.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import androidx.databinding.DataBindingUtil.setContentView
+import androidx.lifecycle.Observer
+import com.google.android.material.snackbar.Snackbar
 import itu.m1.edukids.R
 import itu.m1.edukids.controller.UserController
 import itu.m1.edukids.databinding.ActivityLoginBinding
@@ -34,5 +37,15 @@ class LoginActivity : AppCompatActivity() {
 
     private fun connexion() {
         loginViewModel.connexion(User(loginText.text.toString(), passwordText.text.toString()))
+        loginViewModel.error.observe(this, Observer {
+            Snackbar.make(
+            this,
+            binding.root,
+            "$it",
+            Snackbar.LENGTH_SHORT
+        ).show() })
+//        loginViewModel.error?.value?.let {
+//
+//        }
     }
 }
