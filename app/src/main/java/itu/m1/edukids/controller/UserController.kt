@@ -11,7 +11,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 
-class UserController : ViewModel() {
+class UserController : MainViewModel() {
     // Internally, we use a MutableLiveData, because we will be updating the List of MarsPhoto
     // with new values
     private val _user = MutableLiveData<User>()
@@ -22,11 +22,6 @@ class UserController : ViewModel() {
     private var _error = MutableLiveData<String>()
 
     val error: LiveData<String> = _error
-
-    fun getErrorMessage(raw: String): String {
-        val json = JSONObject(raw)
-        return json.getString("message")
-    }
 
     fun connexion(user: User) {
         viewModelScope.launch {

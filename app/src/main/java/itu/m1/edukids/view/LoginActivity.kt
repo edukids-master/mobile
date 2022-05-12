@@ -44,8 +44,5 @@ class LoginActivity : AppCompatActivity() {
             "$it",
             Snackbar.LENGTH_SHORT
         ).show() })
-//        loginViewModel.error?.value?.let {
-//
-//        }
     }
 }

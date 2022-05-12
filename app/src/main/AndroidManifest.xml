@@ -11,12 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EduKids">
-<!--        <activity-->
-<!--            android:name=".view.GameListActivity"-->
-<!--            android:exported="false"-->
-<!--            android:label="@string/title_activity_game_list" />-->
+       <activity
+           android:name=".view.GameListActivity"
+           android:exported="false"
+           android:label="@string/title_activity_game_list" />
         <activity
-            android:name=".view.GameListActivity"
+            android:name=".view.QuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
