@@ -14,7 +14,9 @@
        <activity
            android:name=".view.GameListActivity"
            android:exported="false"
-           android:label="@string/title_activity_game_list" />
+           android:label="@string/title_activity_game_list"
+           android:theme="@style/Theme.EduKids.NoActionBar"
+           />
         <activity
             android:name=".view.QuizActivity"
             android:exported="false" />

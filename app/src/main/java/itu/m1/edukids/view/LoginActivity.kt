@@ -1,5 +1,6 @@
 package itu.m1.edukids.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -45,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun connexion() {
-        loginViewModel.connexion(User(loginText.text.toString(), passwordText.text.toString()))
+        loginViewModel.connexion(this,User(loginText.text.toString(), passwordText.text.toString()))
+
     }
 }
