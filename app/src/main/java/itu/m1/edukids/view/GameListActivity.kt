@@ -1,6 +1,7 @@
 package itu.m1.edukids.view
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,6 +10,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import itu.m1.edukids.R
 import itu.m1.edukids.databinding.ActivityGameListBinding
+import com.imagekit.android.ImageKit;
+import com.imagekit.android.entity.TransformationPosition
 
 class GameListActivity : AppCompatActivity() {
 
@@ -32,5 +35,14 @@ class GameListActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        ImageKit.init(
+            context = this.applicationContext,
+            publicKey = "public_b7aTnJoygZr6YrBzuWxinJHIn8E=",
+            urlEndpoint = "https://ik.imagekit.io/g3gggequm",
+            transformationPosition = TransformationPosition.PATH,
+            authenticationEndpoint = "http://www.yourserver.com/auth"
+        )
+
     }
 }
