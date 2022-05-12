@@ -30,6 +30,15 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel = UserController()
         binding.viewModel = loginViewModel
 
+        loginViewModel.error.observe(this, Observer {
+            Snackbar.make(
+                this,
+                binding.root,
+                "$it",
+                Snackbar.LENGTH_SHORT
+            ).show()
+        })
+
         binding.connexionBtn.setOnClickListener {
             connexion()
         }
@@ -37,12 +46,5 @@ class LoginActivity : AppCompatActivity() {
 
     private fun connexion() {
         loginViewModel.connexion(User(loginText.text.toString(), passwordText.text.toString()))
-        loginViewModel.error.observe(this, Observer {
-            Snackbar.make(
-            this,
-            binding.root,
-            "$it",
-            Snackbar.LENGTH_SHORT
-        ).show() })
     }
 }

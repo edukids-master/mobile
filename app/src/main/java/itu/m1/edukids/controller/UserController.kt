@@ -19,10 +19,6 @@ class UserController : MainViewModel() {
     // The external LiveData interface to the property is immutable, so only this class can modify
     val user: LiveData<User> = _user
 
-    private var _error = MutableLiveData<String>()
-
-    val error: LiveData<String> = _error
-
     fun connexion(user: User) {
         viewModelScope.launch {
             val response = ApiService.userService.connexion(user)
@@ -32,7 +28,7 @@ class UserController : MainViewModel() {
             } else {
                 val errorMessage = getErrorMessage(response.errorBody()!!.string())
                 Log.e("ERROR", errorMessage)
-                _error.value = errorMessage
+                createError(errorMessage)
             }
         }
     }

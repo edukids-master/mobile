@@ -20,12 +20,16 @@ class QuizViewModel : MainViewModel() {
 
     private fun getQuiz() {
         viewModelScope.launch {
-            val response = ApiService.quizService.getQuiz()
+            try {
+                val response = ApiService.quizService.getQuiz()
 
-            if(response.isSuccessful) {
-                _quiz.value = response.body()
-            } else {
-                response.errorBody()?.let { Log.e("ERROR", it.string()) }
+                if (response.isSuccessful) {
+                    _quiz.value = response.body()
+                } else {
+                    response.errorBody()?.let { Log.e("ERROR", it.string()) }
+                }
+            } catch(error: Error) {
+                createError("Veuillez nous excusez, une erreur inattendue est survenue")
             }
         }
     }
