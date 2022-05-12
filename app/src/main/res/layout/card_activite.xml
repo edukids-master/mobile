@@ -26,7 +26,7 @@
                 android:layout_height="170dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
-                app:imageUrl="@{activity.img}"
+
                 />
 
             <TextView
