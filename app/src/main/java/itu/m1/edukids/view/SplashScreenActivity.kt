@@ -1,5 +1,6 @@
 package itu.m1.edukids.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -7,6 +8,8 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import itu.m1.edukids.R
+import java.util.*
+import kotlin.concurrent.schedule
 
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -22,5 +25,11 @@ class SplashScreenActivity : AppCompatActivity() {
 
         splash.startAnimation(fade_in_Anim)
         splash.visibility = View.VISIBLE
+
+        val intent = Intent(this, LoginActivity::class.java)
+        Timer("SettingUp", false).schedule(3000) {
+            startActivity(intent)
+        }
+
     }
 }

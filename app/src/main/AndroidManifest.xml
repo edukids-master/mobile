@@ -24,6 +24,11 @@
             />
         <activity
             android:name=".view.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.EduKids.NoActionBar"
+            />
+        <activity
+            android:name=".view.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.EduKids.NoActionBar">
             <intent-filter>
