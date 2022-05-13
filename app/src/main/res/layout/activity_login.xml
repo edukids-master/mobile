@@ -48,6 +48,7 @@
                 android:inputType="text"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
+                android:text="mario.safidy"
                 android:textColorHint="#546E7A"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -63,6 +64,7 @@
                 android:inputType="textPassword"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
+                android:text="testing123+"
                 android:textColorHint="#546E7A"
                 tools:ignore="TouchTargetSizeCheck" />
 

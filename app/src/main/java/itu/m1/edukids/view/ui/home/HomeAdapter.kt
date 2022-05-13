@@ -1,23 +1,31 @@
 package itu.m1.edukids.view.ui.home
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import itu.m1.edukids.databinding.CardActiviteBinding
 import itu.m1.edukids.model.Activities
+import itu.m1.edukids.view.GameListActivity
+import itu.m1.edukids.view.quiz.QuizActivity
 
 class HomeAdapter :
     ListAdapter<Activities, HomeAdapter.ActivitiesViewHolder>(DiffCallback) {
+    val activiteMap : HashMap<String,Any>
 
-    /**
-     * The MarsPhotosViewHolder constructor takes the binding variable from the associated
-     * GridViewItem, which nicely gives it access to the full [MarsPhoto] information.
-     */
+    init{
+        activiteMap = HashMap<String,Any>()
+        activiteMap.put("quiz", QuizActivity::class.java)
+    }
+
     class ActivitiesViewHolder(
         private var binding: CardActiviteBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+        val cardView = binding.activityCard
         fun bind(activite : Activities) {
             binding.activity = activite
             // This is important, because it forces the data binding to execute immediately,
@@ -26,10 +34,6 @@ class HomeAdapter :
         }
     }
 
-    /**
-     * Allows the RecyclerView to determine which items have changed when the [List] of
-     * [MarsPhoto] has been updated.
-     */
     companion object DiffCallback : DiffUtil.ItemCallback<Activities>() {
         override fun areItemsTheSame(oldItem: Activities, newItem: Activities): Boolean {
             return oldItem == newItem
@@ -40,9 +44,6 @@ class HomeAdapter :
         }
     }
 
-    /**
-     * Create new [RecyclerView] item views (invoked by the layout manager)
-     */
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -52,11 +53,13 @@ class HomeAdapter :
         )
     }
 
-    /**
-     * Replaces the contents of a view (invoked by the layout manager)
-     */
     override fun onBindViewHolder(holder: ActivitiesViewHolder, position: Int) {
-        val marsPhoto = getItem(position)
-        holder.bind(marsPhoto)
+        val activityCard = getItem(position)
+        holder.bind(activityCard)
+        holder.cardView.setOnClickListener {
+            val context = holder.cardView.context
+            val intent = Intent(context, activiteMap.get(activityCard.categorie) as Class<*>)
+            context.startActivity(intent)
+        }
     }
 }

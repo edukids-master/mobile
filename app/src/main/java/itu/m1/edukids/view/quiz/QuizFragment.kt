@@ -1,13 +1,11 @@
-package itu.m1.edukids.view
+package itu.m1.edukids.view.quiz
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import itu.m1.edukids.adapters.QuizGridAdapter
 import itu.m1.edukids.controller.QuizViewModel
 import itu.m1.edukids.databinding.FragmentQuizBinding
 

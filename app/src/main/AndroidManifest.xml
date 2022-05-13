@@ -18,8 +18,10 @@
            android:theme="@style/Theme.EduKids.NoActionBar"
            />
         <activity
-            android:name=".view.QuizActivity"
-            android:exported="false" />
+            android:name=".view.quiz.QuizActivity"
+            android:exported="false"
+            android:theme="@style/Theme.EduKids.NoActionBar"
+            />
         <activity
             android:name=".view.LoginActivity"
             android:exported="true"

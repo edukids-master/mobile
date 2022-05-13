@@ -1,4 +1,4 @@
-package itu.m1.edukids.view
+package itu.m1.edukids.view.quiz
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

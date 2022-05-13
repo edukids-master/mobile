@@ -12,21 +12,20 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:minHeight="270dp"
-        android:padding="20dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true">
 
         <ImageView
             android:id="@+id/quiz_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center|center_horizontal|center_vertical"
             android:adjustViewBounds="true"
-            android:padding="2dp"
-            android:scaleType="fitXY"
+            app:imageUrl="@{reponse.valeur}"
             tools:src="@tools:sample/backgrounds/scenic" />
 
     </androidx.cardview.widget.CardView>
