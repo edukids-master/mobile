@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_editor_absoluteX="40dp"
+    app:layout_editor_absoluteY="40dp"
+    tools:context=".view.LoadingActivity">
+
+    <ImageView
+        android:id="@+id/edukids"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42000002"
+        app:srcCompat="@drawable/edukis_principal" />
+
+    <ImageView
+        android:id="@+id/piedvert"
+        android:layout_width="64dp"
+        android:layout_height="59dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edukids"
+        app:layout_constraintEnd_toEndOf="@+id/edukids"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/edukids"
+        app:layout_constraintTop_toTopOf="@+id/edukids"
+        app:layout_constraintVertical_bias="0.07999998"
+        app:srcCompat="@drawable/edukids_1" />
+
+    <ImageView
+        android:id="@+id/piedbleu"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edukids"
+        app:layout_constraintEnd_toEndOf="@+id/edukids"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="@+id/edukids"
+        app:layout_constraintTop_toTopOf="@+id/edukids"
+        app:layout_constraintVertical_bias="0.90999997"
+        app:srcCompat="@drawable/edukids_2" />
+
+    <ImageView
+        android:id="@+id/piedrouge"
+        android:layout_width="70dp"
+        android:layout_height="51dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edukids"
+        app:layout_constraintEnd_toEndOf="@+id/edukids"
+        app:layout_constraintHorizontal_bias="0.862"
+        app:layout_constraintStart_toStartOf="@+id/edukids"
+        app:layout_constraintTop_toTopOf="@+id/edukids"
+        app:layout_constraintVertical_bias="0.94"
+        app:srcCompat="@drawable/edukids_3" />
+
+    <TextView
+        android:id="@+id/chargement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="Chargement en cours ..."
+        android:textSize="34sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edukids"
+        app:layout_constraintVertical_bias="0.060000002" />
+</androidx.constraintlayout.widget.ConstraintLayout>
