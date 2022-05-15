@@ -6,4 +6,12 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="question_mark">\?</string>
+    <string name="math_question">%d %s %d = </string>
+    <string name="math_question_answer">%s %d</string>
+    <string name="correct_answer_message">Bien joué! Tu as trouvé la bonne réponse.</string>
+    <string name="incorrect_answer_message">Désolé! Mauvaise réponse.</string>
+    <string name="continue_text">Continuer</string>
+    <string name="correct_answer_title">Réponse correcte!</string>
+    <string name="incorrect_answer_title">Réponse incorrecte!</string>
 </resources>

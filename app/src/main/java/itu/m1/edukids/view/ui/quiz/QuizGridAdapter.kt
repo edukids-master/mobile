@@ -1,4 +1,4 @@
-package itu.m1.edukids.adapters
+package itu.m1.edukids.view.ui.quiz
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import itu.m1.edukids.databinding.QuizCardItemBinding
-import itu.m1.edukids.model.Quiz
 import itu.m1.edukids.model.Reponse
 
 class QuizGridAdapter : ListAdapter<Reponse, QuizGridAdapter.ReponseViewHolder>(DiffCallback) {

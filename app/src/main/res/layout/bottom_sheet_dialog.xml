@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp">
+
+        <!--image view for displaying course image-->
+
+        <!--text view for displaying course name-->
+
+        <TextView
+            android:id="@+id/validation_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="@string/correct_answer_title"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/validation_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/validation_title"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:srcCompat="@drawable/success_clipart" />
+
+        <!--text view for displaying course tracks-->
+        <TextView
+            android:id="@+id/validatoin_expression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/validation_title"
+            android:layout_toEndOf="@id/validation_img"
+            android:layout_toRightOf="@id/validation_img"
+            android:text="@string/math_question"
+            android:textAlignment="center"
+            android:textColor="#4CAF50"
+            android:textSize="48sp" />
+
+        <!--text view for displaying course duration-->
+        <TextView
+            android:id="@+id/validation_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/validatoin_expression"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/validation_img"
+            android:layout_toRightOf="@id/validation_img"
+            android:text="@string/correct_answer_message"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <!--button for dismissing our dialog-->
+        <Button
+            android:id="@+id/idBtnDismiss"
+            style="@style/Theme.EduKids.RadiusButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/validation_img"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/continue_text"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
