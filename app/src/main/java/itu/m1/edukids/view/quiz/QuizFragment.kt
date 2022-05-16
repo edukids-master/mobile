@@ -1,4 +1,4 @@
-package itu.m1.edukids.view.ui.quiz
+package itu.m1.edukids.view.quiz
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

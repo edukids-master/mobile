@@ -1,4 +1,4 @@
-package itu.m1.edukids.view.ui.quiz
+package itu.m1.edukids.view.quiz
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView

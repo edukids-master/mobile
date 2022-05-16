@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="itu.m1.edukids.view.ui.quiz.QuizFragment">
+        tools:context="itu.m1.edukids.view.quiz.QuizFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/quiz_grid"
