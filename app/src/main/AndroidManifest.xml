@@ -21,6 +21,11 @@
             android:theme="@style/Theme.EduKids.NoActionBar"
             />
         <activity
+            android:name=".view.ui.math.MathQuiz"
+            android:exported="false"
+            android:theme="@style/Theme.EduKids.NoActionBar"
+            />
+        <activity
             android:name=".view.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.EduKids.NoActionBar"

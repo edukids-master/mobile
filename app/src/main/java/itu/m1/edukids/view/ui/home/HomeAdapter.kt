@@ -12,6 +12,7 @@ import itu.m1.edukids.databinding.CardActiviteBinding
 import itu.m1.edukids.model.Activities
 import itu.m1.edukids.view.GameListActivity
 import itu.m1.edukids.view.quiz.QuizActivity
+import itu.m1.edukids.view.ui.math.MathQuiz
 
 class HomeAdapter :
     ListAdapter<Activities, HomeAdapter.ActivitiesViewHolder>(DiffCallback) {
@@ -20,6 +21,8 @@ class HomeAdapter :
     init{
         activiteMap = HashMap<String,Any>()
         activiteMap.put("quiz", QuizActivity::class.java)
+        activiteMap.put("nombres", MathQuiz::class.java)
+
     }
 
     class ActivitiesViewHolder(
