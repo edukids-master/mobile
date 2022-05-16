@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import itu.m1.edukids.CustomLoading
 import itu.m1.edukids.model.User
 import itu.m1.edukids.service.ApiService
 import itu.m1.edukids.view.GameListActivity
@@ -22,12 +23,12 @@ class UserController : MainViewModel() {
     // The external LiveData interface to the property is immutable, so only this class can modify
     val user: LiveData<User> = _user
 
-    fun connexion(ctx: Context,  user: User): Boolean {
+    fun connexion(ctx: Context,  user: User, fonction : () -> Unit): Boolean {
         var res = false
         try{
             viewModelScope.launch {
                 val response = ApiService.userService.connexion(user)
-
+                fonction()
                 if(response.isSuccessful) {
                     _user.value = response.body()
                     val intent = Intent(ctx, GameListActivity::class.java)

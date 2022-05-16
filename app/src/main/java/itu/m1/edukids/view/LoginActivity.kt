@@ -8,6 +8,7 @@ import android.widget.EditText
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
+import itu.m1.edukids.CustomLoading
 import itu.m1.edukids.R
 import itu.m1.edukids.controller.UserController
 import itu.m1.edukids.databinding.ActivityLoginBinding
@@ -46,7 +47,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun connexion() {
-        loginViewModel.connexion(this,User(loginText.text.toString(), passwordText.text.toString()))
+        var loading = CustomLoading(this)
+        loading.startLoading()
+        loginViewModel.connexion(this,User(loginText.text.toString(), passwordText.text.toString())) {
+                loading.hideLoading()
+        }
 
     }
 }
