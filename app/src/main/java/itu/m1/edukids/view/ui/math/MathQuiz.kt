@@ -3,16 +3,18 @@ package itu.m1.edukids.view.ui.math
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import itu.m1.edukids.R
 import itu.m1.edukids.databinding.ActivityMathQuizBinding
-import itu.m1.edukids.databinding.FragmentMathResponseBinding
+import itu.m1.edukids.model.Notification
 
 class MathQuiz : AppCompatActivity() {
+    companion object{
+        private var resultatCorrect = 0
+    }
     private lateinit var binding: ActivityMathQuizBinding
     private lateinit var mathFragment: MathResponseFragment
     private lateinit var question: String
@@ -29,6 +31,10 @@ class MathQuiz : AppCompatActivity() {
         createQuiz()
         binding.confirmButton.setOnClickListener {
             verifyAnswer()
+            if(resultatCorrect >= 2){
+                val notification : Notification = Notification()
+                notification.createNotificationChannel(this,this,"EduKids","Félicitation 😊🥳")
+            }
         }
     }
 
@@ -54,6 +60,8 @@ class MathQuiz : AppCompatActivity() {
             val image = view.findViewById<ImageView>(R.id.validation_img)
             image.setImageResource(R.drawable.fail_clipart)
         }
+
+        if(isCorrect) resultatCorrect++
 
         expression.text = getString(R.string.math_question_answer, question, answer)
 
