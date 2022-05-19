@@ -17,12 +17,6 @@ open class YouTubePlayerSupportFragmentX: Fragment(), YouTubePlayer.Provider {
     private var e: YouTubePlayer.OnInitializedListener? = null
     private val f = false
 
-    companion object {
-        fun newInstance(): YouTubePlayerSupportFragmentX {
-            return YouTubePlayerSupportFragmentX()
-        }
-    }
-
     override fun initialize(var1: String?, var2: YouTubePlayer.OnInitializedListener?) {
         d = ab.a(var1, "Developer key cannot be null or empty")
         e = var2
@@ -31,7 +25,6 @@ open class YouTubePlayerSupportFragmentX: Fragment(), YouTubePlayer.Provider {
 
     private fun aFunc() {
         if (c != null && e != null) {
-            c?.a(f)
             c?.a(this.activity, this, d, e, b)
             b = null
             e = null

@@ -18,6 +18,7 @@ class VideoFragmentList : Fragment() {
     private var columnCount = 1
     private val viewModel: VideoViewModel by viewModels()
     private lateinit var progressBar: ProgressBar
+    private lateinit var binding: FragmentVideoListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,13 +26,19 @@ class VideoFragmentList : Fragment() {
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
+
+        observeEndlessScrolling()
+    }
+
+    private fun observeEndlessScrolling() {
+//        binding.videoList.setOnScrollChangeListener { view, i, i2, i3, i4 ->  }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentVideoListBinding.inflate(inflater)
+        binding = FragmentVideoListBinding.inflate(inflater)
 
         progressBar = binding.progressBarVideo
         binding.lifecycleOwner = this
