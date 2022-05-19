@@ -3,6 +3,13 @@
     package="itu.m1.edukids">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -11,25 +18,25 @@
         android:roundIcon="@mipmap/edukid_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EduKids">
-       <activity
-           android:name=".view.GameListActivity"
-           android:exported="false"
-           />
+        <activity
+            android:name=".view.ui.video.VideoDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.EduKids.NoActionBar" />
+        <activity
+            android:name=".view.GameListActivity"
+            android:exported="false" />
         <activity
             android:name=".view.quiz.QuizActivity"
             android:exported="false"
-            android:theme="@style/Theme.EduKids.NoActionBar"
-            />
+            android:theme="@style/Theme.EduKids.NoActionBar" />
         <activity
             android:name=".view.ui.math.MathQuiz"
             android:exported="false"
-            android:theme="@style/Theme.EduKids.NoActionBar"
-            />
+            android:theme="@style/Theme.EduKids.NoActionBar" />
         <activity
             android:name=".view.LoginActivity"
             android:exported="false"
-            android:theme="@style/Theme.EduKids.NoActionBar"
-            />
+            android:theme="@style/Theme.EduKids.NoActionBar" />
         <activity
             android:name=".view.SplashScreenActivity"
             android:exported="true"
