@@ -2,6 +2,9 @@ package itu.m1.edukids.view.ui.video
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -56,9 +59,24 @@ class VideoDetailActivity : AppCompatActivity() {
         with(video) {
             videoTitle.text = title
             videoDesc.text = description
-            toolbar.title = title
+//            toolbar.title = title
 
             setSupportActionBar(toolbar)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.video_top_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.action_close -> {
+                finish()
+            }
+        }
+
+        return true
     }
 }
