@@ -68,6 +68,8 @@ class VideoViewModel : MainViewModel() {
                 filter["channelId"] = AppConst.YOUTUBE_CHANNEL_ID
                 filter["part"] = "snippet"
                 filter["maxResults"] = "20"
+                filter["type"] = "video"
+                filter["order"] = "date"
 
                 val response = ApiService.videoService.getVideos(AppConst.YOUTUBE_API_KEY, filter)
 

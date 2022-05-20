@@ -11,11 +11,11 @@ class FragmentVideoPlayer : YouTubePlayerSupportFragmentX(), YouTubePlayer.OnIni
             initialize(AppConst.YOUTUBE_API_KEY, this)
         }
 
-    private var onVideoPlayListener: OnVideoPlayListener? = null
-
-    interface OnVideoPlayListener {
-        fun onPlaying(videoId: String)
-    }
+//    private var onVideoPlayListener: OnVideoPlayListener? = null
+//
+//    interface OnVideoPlayListener {
+//        fun onPlaying(videoId: String)
+//    }
 
     override fun onCreate(p0: Bundle?) {
         super.onCreate(p0)
@@ -30,8 +30,6 @@ class FragmentVideoPlayer : YouTubePlayerSupportFragmentX(), YouTubePlayer.OnIni
                     videoId = bundle.getString("KEY_VIDEO_ID").toString()
                 }
             }
-
-            initialize(AppConst.YOUTUBE_API_KEY, this)
         }
     }
 
@@ -41,13 +39,11 @@ class FragmentVideoPlayer : YouTubePlayerSupportFragmentX(), YouTubePlayer.OnIni
         p2: Boolean
     ) {
         if(!videoId.isNullOrEmpty()) {
+            p1?.loadVideo(videoId)
+
             if(p2) {
                 p1?.play()
-            } else {
-                p1?.loadVideo(videoId)
             }
-
-            onVideoPlayListener?.onPlaying(videoId)
         }
     }
 
