@@ -10,7 +10,8 @@ import itu.m1.edukids.controller.QuizViewModel
 import itu.m1.edukids.databinding.FragmentQuizBinding
 
 class QuizFragment : Fragment() {
-    private val viewModel: QuizViewModel by viewModels()
+    lateinit var viewModel: QuizViewModel
+    var selectedAnswer = -1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,9 +21,14 @@ class QuizFragment : Fragment() {
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        binding.quizGrid.adapter = QuizGridAdapter()
+        binding.quizGrid.adapter = QuizGridAdapter() { position ->
+            onCardViewClick(position)
+        }
 
         return binding.root
     }
 
+    private fun onCardViewClick(position: Int) {
+        selectedAnswer = position
+    }
 }

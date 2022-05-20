@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/gray_background"
         tools:context="itu.m1.edukids.view.quiz.QuizFragment">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -19,7 +20,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:clipToPadding="false"
-            android:padding="10dp"
+            android:padding="5dp"
+            android:contentDescription="quiz_responses"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

@@ -11,4 +11,5 @@
     <color name="bleu_sky">#159fbb</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray_background">#EEEEEE</color>
+    <color name="blue_highlight">#51cbee</color>
 </resources>

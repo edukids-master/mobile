@@ -9,6 +9,9 @@
     <string name="question_mark">\?</string>
     <string name="math_question">%d %s %d = </string>
     <string name="math_question_answer">%s %d</string>
+    <string name="quiz_correct_expression">%s</string>
+    <string name="quiz_correct_desc">Bravo! Oui en effet c\'est</string>
+    <string name="quiz_incorrect_desc">Oups! Non ce que tu as choisis est</string>
     <string name="correct_answer_message">Bien joué! Tu as trouvé la bonne réponse.</string>
     <string name="incorrect_answer_message">Désolé! Mauvaise réponse.</string>
     <string name="continue_text">Continuer</string>

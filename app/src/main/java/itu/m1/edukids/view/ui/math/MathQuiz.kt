@@ -3,6 +3,7 @@ package itu.m1.edukids.view.ui.math
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -50,6 +51,9 @@ class MathQuiz : AppCompatActivity() {
         val expression = view.findViewById<TextView>(R.id.validatoin_expression)
 
         if(!isCorrect) {
+            val desc = view.findViewById<TextView>(R.id.description)
+            desc.visibility = View.GONE
+
             val title = view.findViewById<TextView>(R.id.validation_title)
             title.text = getString(R.string.incorrect_answer_title)
             expression.setTextColor(Color.RED)

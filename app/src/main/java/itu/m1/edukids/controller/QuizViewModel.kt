@@ -5,30 +5,31 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import itu.m1.edukids.AppConst
 import itu.m1.edukids.model.Quiz
 import itu.m1.edukids.service.ApiService
 import itu.m1.edukids.service.QuizService
 import kotlinx.coroutines.launch
 
 class QuizViewModel : MainViewModel() {
+    private val _quizList = MutableLiveData<List<Quiz>>()
+    val quizList: LiveData<List<Quiz>> = _quizList
     private val _quiz = MutableLiveData<Quiz>()
     val quiz: LiveData<Quiz> = _quiz
 
-    init {
-        getQuiz()
-    }
-
-    private fun getQuiz() {
+    fun getQuiz(callback: () -> Unit) {
         viewModelScope.launch {
             try {
-                val response = ApiService.quizService.getQuiz()
+                val response = ApiService.quizService.getQuiz(AppConst.QUIZ_COUNT)
 
                 if (response.isSuccessful) {
-                    _quiz.value = response.body()
+                    _quizList.value = response.body()
+                    _quiz.value = quizList.value?.get(0)
+                    callback()
                 } else {
                     response.errorBody()?.let { Log.e("ERROR", it.string()) }
                 }
-            } catch(error: Error) {
+            } catch (error: Error) {
                 createError("Veuillez nous excusez, une erreur inattendue est survenue")
             }
         }

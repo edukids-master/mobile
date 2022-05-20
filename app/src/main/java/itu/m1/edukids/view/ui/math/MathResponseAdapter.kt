@@ -1,5 +1,6 @@
 package itu.m1.edukids.view.ui.math
 
+import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -38,14 +39,16 @@ class MathResponseAdapter(
 
         holder.cardView.let {
             if(position != selectedPosition) {
+                holder.textView.setTextColor(Color.BLACK)
                 it.setCardBackgroundColor(
                     ContextCompat.getColor(
                         it.context,
-                        R.color.white
+                        R.color.gray_background
                     )
                 )
             }
             else {
+                holder.textView.setTextColor(Color.WHITE)
                 it.setCardBackgroundColor(
                     ContextCompat.getColor(
                         it.context,
