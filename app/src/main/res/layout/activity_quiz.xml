@@ -21,7 +21,7 @@
                 android:orientation="horizontal">
 
                 <ProgressBar
-                    android:id="@+id/progressBar2"
+                    android:id="@+id/quiz_progress"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -32,6 +32,7 @@
                     android:progressTint="@color/amber_500" />
 
                 <TextView
+                    android:id="@+id/progress_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -42,8 +43,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="/"
                     android:layout_marginHorizontal="5dp"
+                    android:text="/"
                     android:textSize="20sp" />
 
                 <TextView
@@ -60,46 +61,11 @@
             android:layout_height="2dp"
             android:background="@color/gray_background" />
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/quiz_content_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingTop="20dp">
-
-            <TextView
-                android:id="@+id/quiz_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp"
-                android:text="Title"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <TextView
-                    android:id="@+id/quiz_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:paddingHorizontal="20dp"
-                    android:text="Description"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-            </RelativeLayout>
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/quiz_response_list"
-                android:name="itu.m1.edukids.view.quiz.QuizFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="7"
-                tools:layout="@layout/fragment_quiz" />
-        </LinearLayout>
+            android:layout_weight="7"></FrameLayout>
 
         <Button
             android:id="@+id/confirm_button"

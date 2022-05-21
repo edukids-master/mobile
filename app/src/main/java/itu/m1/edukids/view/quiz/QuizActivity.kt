@@ -6,11 +6,14 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.Observer
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import itu.m1.edukids.AppConst
 import itu.m1.edukids.R
 import itu.m1.edukids.controller.QuizViewModel
 import itu.m1.edukids.databinding.ActivityQuizBinding
@@ -19,9 +22,11 @@ import itu.m1.edukids.model.Reponse
 class QuizActivity : AppCompatActivity() {
     private val viewModel: QuizViewModel by viewModels()
     private lateinit var binding: ActivityQuizBinding
-    private lateinit var responseListFragment: QuizFragment
+    private lateinit var quizContentFragment: QuizContentFragment
     private var currentResponse: Reponse? = null
+    private var count: Int = 0
     private lateinit var toolbar: Toolbar
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +34,20 @@ class QuizActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         toolbar = binding.toolbar
+        progressBar = binding.quizProgress
 
-        responseListFragment = binding.quizResponseList.getFragment<QuizFragment>()
-        responseListFragment.viewModel = viewModel
+        viewModel.getQuiz {
+            attachFragment()
+        }
 
-        viewModel.getQuiz { getData() }
+        viewModel.selectedReponse.observe(this, Observer {
+            currentResponse = it
+        })
+
+        viewModel.quiz.observe(this, Observer {
+            loadQuiz()
+        })
+
         binding.confirmButton.setOnClickListener {
             verifyAnswer()
         }
@@ -41,8 +55,34 @@ class QuizActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.let {
             it.setDisplayShowTitleEnabled(false)
+            initProgress()
         }
     }
+
+    private fun initProgress() {
+        progressBar?.let {
+            it.max = AppConst.QUIZ_COUNT
+            it.progress = 0
+            binding.progressCount.text = "0"
+        }
+    }
+
+    private fun loadQuiz() {
+        if(this::quizContentFragment.isInitialized) {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.detach(quizContentFragment)
+            transaction.commit()
+
+            attachFragment()
+        }
+    }
+
+    private fun attachFragment() {
+        quizContentFragment = QuizContentFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.quiz_content_container, quizContentFragment).commit()
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.quiz_top_menu, menu)
@@ -50,7 +90,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.action_close -> {
                 finish()
             }
@@ -59,10 +99,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun verifyAnswer() {
-        val selectedIndex = responseListFragment.selectedAnswer
-        if(selectedIndex == -1) return
-
-        currentResponse = viewModel.quiz.value?.reponses?.get(selectedIndex)
+        if (currentResponse == null) return
 
         showDialog()
     }
@@ -78,7 +115,7 @@ class QuizActivity : AppCompatActivity() {
             expression.text = getString(R.string.quiz_correct_expression, it.desc)
             desc.text = getString(R.string.quiz_correct_desc)
 
-            if(it.correct == null || !it.correct) {
+            if (it.correct == null || !it.correct) {
                 desc.text = getString(R.string.quiz_incorrect_desc)
 
                 val title = view.findViewById<TextView>(R.id.validation_title)
@@ -93,16 +130,33 @@ class QuizActivity : AppCompatActivity() {
             }
         }
 
+        var action: () -> Unit = {
+            dialog.dismiss()
+            nextQuiz()
+            progressBar.progress = count
+            binding.progressCount.text = "$count"
+        }
+
+        if(count == AppConst.QUIZ_COUNT - 1) {
+            btnClose.text = getString(R.string.quiz_finish_button)
+            action = {
+                finish()
+            }
+        }
+
+        btnClose.setOnClickListener {
+            action()
+        }
+
         dialog.setCancelable(false)
 
         dialog.setContentView(view)
         dialog.show()
     }
 
-    private fun getData() {
-        viewModel.quiz?.value?.let {
-            binding.quizTitle.text = it.question?.text
-            binding.quizDescription.text = it.indice.desc
-        }
+    private fun nextQuiz() {
+        viewModel.selectItem(null)
+        count++
+        viewModel.nextQuiz(count)
     }
 }

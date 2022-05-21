@@ -17,4 +17,5 @@
     <string name="continue_text">Continuer</string>
     <string name="correct_answer_title">Réponse correcte!</string>
     <string name="incorrect_answer_title">Réponse incorrecte!</string>
+    <string name="quiz_finish_button">Terminer</string>
 </resources>

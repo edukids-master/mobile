@@ -26,12 +26,6 @@ class VideoFragmentList : Fragment() {
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
-
-        observeEndlessScrolling()
-    }
-
-    private fun observeEndlessScrolling() {
-//        binding.videoList.setOnScrollChangeListener { view, i, i2, i3, i4 ->  }
     }
 
     override fun onCreateView(
