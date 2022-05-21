@@ -26,6 +26,7 @@ class QuizViewModel : MainViewModel() {
 
     fun nextQuiz(position: Int) {
         _quiz.value = quizList.value?.get(position)
+        quiz.value?.reponses = quiz.value?.reponses?.shuffled()!!
     }
 
     fun getQuiz(callback: () -> Unit) {
