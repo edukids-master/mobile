@@ -63,8 +63,8 @@ class QuizContentFragment() : Fragment() {
 
     private fun getData(quiz: Quiz) {
         with(quiz) {
-            binding.quizTitle.text = question?.text
-            binding.quizDescription.text = indice?.desc
+            binding.quizTitle.text = question.text
+            binding.quizDescription.text = indice.desc
         }
     }
 }
