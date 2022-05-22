@@ -66,7 +66,7 @@ class HomeAdapter :
         val gradientDrawable = GradientDrawable()
         with(gradientDrawable) {
             gradientType = GradientDrawable.LINEAR_GRADIENT
-            orientation = GradientDrawable.Orientation.BL_TR
+            orientation = GradientDrawable.Orientation.TOP_BOTTOM
             colors = intArrayOf(
                 Color.parseColor(activityCard.colors[0]),
                 Color.parseColor(activityCard.colors[1])
