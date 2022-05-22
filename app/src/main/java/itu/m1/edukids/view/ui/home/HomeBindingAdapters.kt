@@ -24,8 +24,7 @@ fun bindImage(imgView : ImageView, imgUrl : String){
         .url(
             path = imgUrl,
             transformationPosition = TransformationPosition.QUERY
-        ).height(300).width(300)
-        .aspectRatio(3, 3)
+        )
         .create()
 
         image?.let {

@@ -2,6 +2,8 @@ package itu.m1.edukids.view.ui.home
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -16,12 +18,11 @@ import itu.m1.edukids.view.ui.math.MathQuiz
 
 class HomeAdapter :
     ListAdapter<Activities, HomeAdapter.ActivitiesViewHolder>(DiffCallback) {
-    val activiteMap : HashMap<String,Any>
+    val activiteMap : HashMap<String,Any> = HashMap<String,Any>()
 
     init{
-        activiteMap = HashMap<String,Any>()
-        activiteMap.put("quiz", QuizActivity::class.java)
-        activiteMap.put("nombres", MathQuiz::class.java)
+        activiteMap["quiz"] = QuizActivity::class.java
+        activiteMap["nombres"] = MathQuiz::class.java
 
     }
 
@@ -29,6 +30,8 @@ class HomeAdapter :
         private var binding: CardActiviteBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         val cardView = binding.activityCard
+        val cardItemLayout = binding.activityCardItem
+
         fun bind(activite : Activities) {
             binding.activity = activite
             // This is important, because it forces the data binding to execute immediately,
@@ -59,9 +62,22 @@ class HomeAdapter :
     override fun onBindViewHolder(holder: ActivitiesViewHolder, position: Int) {
         val activityCard = getItem(position)
         holder.bind(activityCard)
+
+        val gradientDrawable = GradientDrawable()
+        with(gradientDrawable) {
+            gradientType = GradientDrawable.LINEAR_GRADIENT
+            orientation = GradientDrawable.Orientation.TOP_BOTTOM
+            colors = intArrayOf(
+                Color.parseColor(activityCard.colors[0]),
+                Color.parseColor(activityCard.colors[1])
+            )
+        }
+
+        holder.cardItemLayout.background = gradientDrawable
+
         holder.cardView.setOnClickListener {
             val context = holder.cardView.context
-            val intent = Intent(context, activiteMap.get(activityCard.categorie) as Class<*>)
+            val intent = Intent(context, activiteMap[activityCard.categorie] as Class<*>)
             context.startActivity(intent)
         }
     }
