@@ -5,5 +5,6 @@ data class Activities(
     val img : String,
     val titre: String,
     val colors: List<String>,
-    val bgImg: String
+    val bgImg: String,
+    val description: String
 )
