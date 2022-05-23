@@ -1,22 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.notifications.NotificationsFragment">
+    android:orientation="vertical"
+    tools:context=".view.ui.parametres.ParametresFragment"
+    android:background="@color/gray_background"
+    >
 
-    <TextView
-        android:id="@+id/text_notifications"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/param_profil_card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="25dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical">
+            <ImageView
+                android:id="@+id/param_profil_img"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_profile"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/param_profil_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Profil"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/param_pref_card"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="25dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical">
+            <ImageView
+                android:id="@+id/param_pref_img"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_settings_24"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                />
+
+            <TextView
+                android:id="@+id/param_pref_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Préferences"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/param_logout_card"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="25dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical">
+            <ImageView
+                android:id="@+id/param_logout_img"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_logout"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                app:tint="@color/red" />
+
+            <TextView
+                android:id="@+id/param_logout_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Déconnexion"
+                android:textSize="20sp"
+                android:textColor="@color/red"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

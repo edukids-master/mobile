@@ -27,6 +27,9 @@
             android:name=".view.GameListActivity"
             android:exported="false" />
         <activity
+            android:name=".view.ProfilActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.quiz.QuizActivity"
             android:exported="false"
             android:theme="@style/Theme.EduKids.NoActionBar" />
