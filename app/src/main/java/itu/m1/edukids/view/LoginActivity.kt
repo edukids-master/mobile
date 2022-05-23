@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.Observer
@@ -16,6 +17,7 @@ import itu.m1.edukids.MainActivity
 import itu.m1.edukids.R
 import itu.m1.edukids.controller.UserController
 import itu.m1.edukids.databinding.ActivityLoginBinding
+import itu.m1.edukids.model.LocalAccess
 import itu.m1.edukids.model.User
 import itu.m1.edukids.service.NetworkService
 import itu.m1.edukids.service.NetworkService.checkCurrentNetworkStatus
@@ -34,6 +36,13 @@ class LoginActivity : MainActivity() {
         binding = setContentView(this, R.layout.activity_login)
 
         NetworkService.checkInternetConnectionOnBackground()
+        var localAccess = LocalAccess(this)
+        var user = localAccess.recupDernier()
+        if(user != null) {
+            val intent = Intent(this, GameListActivity::class.java)
+            startActivity(intent)
+        }
+
 
         loginText = binding.loginText
         passwordText = binding.passwordText

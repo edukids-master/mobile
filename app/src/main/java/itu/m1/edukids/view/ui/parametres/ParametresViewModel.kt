@@ -1,13 +1,13 @@
-package itu.m1.edukids.view.ui.notifications
+package itu.m1.edukids.view.ui.parametres
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class ParametresViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+        value = "This is parametres Fragment"
     }
     val text: LiveData<String> = _text
 }

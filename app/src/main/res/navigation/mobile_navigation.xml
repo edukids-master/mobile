@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="itu.m1.edukids.view.ui.notifications.NotificationsFragment"
+        android:name="itu.m1.edukids.view.ui.parametres.ParametresFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

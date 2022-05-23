@@ -5,11 +5,12 @@
     <color name="bleu_dire">#1d15bb</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#000000</color>
     <color name="amber_500">#f59e0b</color>
     <color name="orange_600">#ea580c</color>
     <color name="bleu_sky">#159fbb</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray_background">#EEEEEE</color>
     <color name="blue_highlight">#51cbee</color>
+    <color name="red">#FFFF0000</color>
 </resources>
