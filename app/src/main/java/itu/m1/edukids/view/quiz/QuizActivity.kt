@@ -14,12 +14,13 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import itu.m1.edukids.AppConst
+import itu.m1.edukids.MainActivity
 import itu.m1.edukids.R
 import itu.m1.edukids.controller.QuizViewModel
 import itu.m1.edukids.databinding.ActivityQuizBinding
 import itu.m1.edukids.model.Reponse
 
-class QuizActivity : AppCompatActivity() {
+class QuizActivity : MainActivity() {
     private val viewModel: QuizViewModel by viewModels()
     private lateinit var binding: ActivityQuizBinding
     private lateinit var quizContentFragment: QuizContentFragment

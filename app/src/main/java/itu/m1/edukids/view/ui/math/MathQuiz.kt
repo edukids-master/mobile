@@ -8,11 +8,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import itu.m1.edukids.MainActivity
 import itu.m1.edukids.R
 import itu.m1.edukids.databinding.ActivityMathQuizBinding
 import itu.m1.edukids.model.Notification
 
-class MathQuiz : AppCompatActivity() {
+class MathQuiz : MainActivity() {
     companion object{
         private var resultatCorrect = 0
     }

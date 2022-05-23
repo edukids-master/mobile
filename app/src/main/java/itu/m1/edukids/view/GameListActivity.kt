@@ -12,8 +12,9 @@ import itu.m1.edukids.R
 import itu.m1.edukids.databinding.ActivityGameListBinding
 import com.imagekit.android.ImageKit;
 import com.imagekit.android.entity.TransformationPosition
+import itu.m1.edukids.MainActivity
 
-class GameListActivity : AppCompatActivity() {
+class GameListActivity : MainActivity() {
 
     private lateinit var binding: ActivityGameListBinding
 

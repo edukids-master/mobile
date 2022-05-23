@@ -11,11 +11,12 @@ import androidx.appcompat.widget.Toolbar
 import com.google.android.youtube.player.FragmentVideoPlayer
 import com.google.android.youtube.player.YouTubeApiServiceUtil
 import com.google.android.youtube.player.YouTubeInitializationResult
+import itu.m1.edukids.MainActivity
 import itu.m1.edukids.R
 import itu.m1.edukids.databinding.ActivityVideoDetailActivityBinding
 import itu.m1.edukids.model.Video
 
-class VideoDetailActivity : AppCompatActivity() {
+class VideoDetailActivity : MainActivity() {
     lateinit var binding: ActivityVideoDetailActivityBinding
     lateinit var videoTitle: TextView
     lateinit var videoDesc: TextView
