@@ -16,6 +16,7 @@ import itu.m1.edukids.MainActivity
 import itu.m1.edukids.R
 import itu.m1.edukids.controller.UserController
 import itu.m1.edukids.databinding.ActivityLoginBinding
+import itu.m1.edukids.model.Notification
 import itu.m1.edukids.model.User
 import itu.m1.edukids.service.NetworkService
 import itu.m1.edukids.service.NetworkService.checkCurrentNetworkStatus
@@ -34,6 +35,7 @@ class LoginActivity : MainActivity() {
         binding = setContentView(this, R.layout.activity_login)
 
         NetworkService.checkInternetConnectionOnBackground()
+        Notification.createNotificationChannel(this)
 
         loginText = binding.loginText
         passwordText = binding.passwordText

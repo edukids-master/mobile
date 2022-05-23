@@ -33,9 +33,10 @@ class MathQuiz : MainActivity() {
         createQuiz()
         binding.confirmButton.setOnClickListener {
             verifyAnswer()
-            if(resultatCorrect >= 2){
-                val notification : Notification = Notification()
-                notification.createNotificationChannel(this,this,"EduKids","Félicitation 😊🥳")
+            if(resultatCorrect >= 5){
+                Notification.notify(this) {
+                    it.setContentText("Tu as bien révisé tes maths à ce que je vois")
+                }
             }
         }
     }

@@ -18,6 +18,7 @@ import itu.m1.edukids.MainActivity
 import itu.m1.edukids.R
 import itu.m1.edukids.controller.QuizViewModel
 import itu.m1.edukids.databinding.ActivityQuizBinding
+import itu.m1.edukids.model.Notification
 import itu.m1.edukids.model.Reponse
 
 class QuizActivity : MainActivity() {
@@ -26,6 +27,7 @@ class QuizActivity : MainActivity() {
     private lateinit var quizContentFragment: QuizContentFragment
     private var currentResponse: Reponse? = null
     private var count: Int = 0
+    private var correctAnswerCount: Int = 0
     private lateinit var toolbar: Toolbar
     private lateinit var progressBar: ProgressBar
 
@@ -102,6 +104,10 @@ class QuizActivity : MainActivity() {
     private fun verifyAnswer() {
         if (currentResponse == null) return
 
+        if(currentResponse!!.correct == true) {
+            correctAnswerCount++
+        }
+
         showDialog()
     }
 
@@ -141,6 +147,9 @@ class QuizActivity : MainActivity() {
         if(count == AppConst.QUIZ_COUNT - 1) {
             btnClose.text = getString(R.string.quiz_finish_button)
             action = {
+                Notification.notify(this) {
+                    it.setContentText("Félicitation, tu as eu $correctAnswerCount bonnes réponses sur ${AppConst.QUIZ_COUNT}")
+                }
                 finish()
             }
         }
